@@ -15,6 +15,7 @@ ADBLOCK_SOURCES = [
     'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext',
     'http://winhelp2002.mvps.org/hosts.txt',
     'http://hosts-file.net/ad_servers.txt',
+    'http://sbc.io/hosts/alternates/porn/hosts',
 ]
 
 FQDN = socket.getfqdn()

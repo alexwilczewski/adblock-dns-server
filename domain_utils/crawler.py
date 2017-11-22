@@ -9,6 +9,7 @@ class Crawler:
         'exclude_comments',
         'exclude_invalid_chars',
         'starts_with_local_ip',
+        'exclude_non_ascii',
     ]
 
     @classmethod
@@ -103,3 +104,10 @@ class Crawler:
                 return True
 
         return False
+
+    def exclude_non_ascii(self, line):
+        try:
+            line.encode('ascii')
+        except UnicodeEncodeError:
+            return False
+        return True
