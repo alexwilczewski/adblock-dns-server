@@ -26,12 +26,22 @@ def create_null_zone():
     nullzone_writer.export_to_file()
 
 
+def get_extra_badlist():
+    f = open('extra/extra.txt')
+    extra_lines = f.read().split('\n')
+    f.close()
+    return extra_lines
+
+
 def update_badlist():
     redirect_ip = settings.IPV4
     output_path = settings.BLACKLIST_FILEPATH
     sources = settings.ADBLOCK_SOURCES
 
     ad_domain_list = []
+    ad_domain_list.extend(get_extra_badlist())
+
+    print(ad_domain_list)
     for source in sources :
         crawler = Crawler(source)
         ad_domain_list.extend(crawler.get_domains())
