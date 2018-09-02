@@ -1,9 +1,9 @@
 #!/bin/sh
 
-groupmod --gid $BINDGID bind
-usermod --uid $BINDUID bind
+groupmod --gid $BINDGID named
+usermod --uid $BINDUID named
 
-chown bind:bind /etc/bind/*
+chown named:named /etc/bind/*
 chmod 644 /etc/bind/*
 
 exec named -g
