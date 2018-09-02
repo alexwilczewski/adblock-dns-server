@@ -5,8 +5,8 @@ import sys, shutil
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-BLACKLIST_FILEPATH = os.path.join(BASE_DIR, os.path.abspath('bind/badlist'))
-NULLZONE_FILEPATH = os.path.join(BASE_DIR, os.path.abspath('bind/null.zone.file'))
+BLACKLIST_FILEPATH = os.path.join(BASE_DIR, os.path.abspath('/etc/bind/badlist'))
+NULLZONE_FILEPATH = os.path.join(BASE_DIR, os.path.abspath('/etc/bind/null.zone.file'))
 
 ADBLOCK_SOURCES = [
     'http://adaway.org/hosts.txt',
@@ -17,8 +17,8 @@ ADBLOCK_SOURCES = [
 
     # porn sites to block
     'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts',
-    'local_sources/porn_custom.txt',
-    'local_sources/porn_reddit.txt',
+    '/usr/local/lib/update/local_sources/porn_custom.txt',
+    '/usr/local/lib/update/local_sources/porn_reddit.txt',
 ]
 
 HOST = 'dns1'
