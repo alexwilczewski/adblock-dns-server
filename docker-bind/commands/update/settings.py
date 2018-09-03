@@ -7,7 +7,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 BLACKLIST_FILEPATH = '/etc/bind/badlist'
 NULLZONE_FILEPATH = '/etc/bind/null.zone.file'
-WHITELIST_FILEPATH = os.path.abspath('whitelist')
+WHITELIST_FILEPATH = os.path.abspath(os.path.join(BASE_DIR, 'whitelist'))
 
 ADBLOCK_SOURCES = [
     'http://adaway.org/hosts.txt',

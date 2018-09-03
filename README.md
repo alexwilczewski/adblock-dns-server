@@ -1,30 +1,40 @@
+# Credit
+Original design and development created by ragibkl. See [the original Github](https://github.com/ragibkl/adblock-dns-server)
+
+---
+---
+
 # Adblock DNS Server
-Adblocking DNS server using bind and nginx services. The services are run inside docker containers.
+Adblocking DNS server using bind service. The service is run inside a docker container.
 
 ## Overview
 This project is created to help block Ads, at the DNS resolution level.
-Using this project, you can quickly bring up a caching DNS server that also redirects Ads to a null webserver.
+Using this project, you can quickly bring up a caching DNS server that also redirects Ads to a dead IP.
 If you use this DNS server on your devices/wifi-router instead of your ISP's or other regular DNS servers (Google, OpenDNS), Ads wil be blocked.
 
 ## Requirements
 To run this project, make sure your system/server has the following packages installed: 
-- python3
 - docker
-- docker-compose
 
 ## Running the server
 Follow these steps to get this project up and running.
 
 1. Clone this project   
-   `git clone https://github.com/ragibkl/adblock-dns-server.git`
+   `git clone https://github.com/alexwilczewski/adblock-dns-server.git`
 
 2. cd into the cloned project.  
    `cd adblock-dns-server`   
 
-3. run the start script    
-   `./start.sh`
+3. build the docker container  
+   `sudo docker build -t adblock/bind:latest docker-bind`
 
-4. do a quick test   
+4. run the container  
+   `./load-container.sh`
+
+5. update blacklist  
+   `sudo docker exec adblockdns update`
+
+6. do a quick test   
     ```shell
     # tests dns lookup against Google's dns server
     # should return regular/valid response
@@ -47,8 +57,8 @@ Follow these steps to get this project up and running.
     Address: X.X.X.X
     ```
 
-5. stopping the dns server       
-    `./stop.sh`
+7. stopping the container  
+    `sudo docker stop adblockdns`
 
 ## Configuring your device
 
