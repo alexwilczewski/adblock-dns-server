@@ -5,8 +5,9 @@ import sys, shutil
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-BLACKLIST_FILEPATH = os.path.join(BASE_DIR, os.path.abspath('/etc/bind/badlist'))
-NULLZONE_FILEPATH = os.path.join(BASE_DIR, os.path.abspath('/etc/bind/null.zone.file'))
+BLACKLIST_FILEPATH = '/etc/bind/badlist'
+NULLZONE_FILEPATH = '/etc/bind/null.zone.file'
+WHITELIST_FILEPATH = os.path.abspath('whitelist')
 
 ADBLOCK_SOURCES = [
     'http://adaway.org/hosts.txt',
